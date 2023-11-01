@@ -1,13 +1,2 @@
 # alx-higher_level_programming
---
-0x00-python-hello_world
---
---
-0x02-python-import_modules
---
---
-0x03-python-data_structures
---
---
-0x04-python-more_data_structures
---
+#  ![download](https://github.com/agichimu/alx-higher_level_programming/assets/97959452/c10f0f5c-6650-462b-a570-3fce848cdd55)
