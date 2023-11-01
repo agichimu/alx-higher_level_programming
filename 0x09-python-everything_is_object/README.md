@@ -1,3 +1,4 @@
 # 9. Python - Everything is object
 
-# https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/252/r_208403_QPSN8.jpg
+# ![r_208403_QPSN8](https://github.com/agichimu/alx-higher_level_programming/assets/97959452/5fbdf607-1450-42d3-b963-97d48872198e)
+
