@@ -1,59 +1,63 @@
 #!/usr/bin/python3
+""" Class Square that defines a square by
+    Private instance attribute: size
+    Private instance attirubute: position
+    Getter and Setters
+    Instantiation with optional size
+    size must be an integer
+    Public instance method: def area(self)
+    Public instance method: def my_print(self)
+    Allow compare with other
+"""
+
 
 class Square:
-    def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
+    """Class constructor"""
+    def __init__(self, size=0):
+        if type(size) != int:
+            raise TypeError('size must be an integer')
+        if size < 0:
+            raise ValueError('size must be >= 0')
+        self.__size = size
 
+    """Size getter"""
     @property
     def size(self):
         return self.__size
 
+    """Size setter"""
     @size.setter
     def size(self, value):
-        if not isinstance(value, int):
-            raise TypeError("size must be an integer")
+        if type(value) != int:
+            raise TypeError('size must be an integer')
         if value < 0:
-            raise ValueError("size must be >= 0")
+            raise ValueError('size must be >= 0')
         self.__size = value
 
-    @property
-    def position(self):
-        return self.__position
-
-    @position.setter
-    def position(self, value):
-        if not isinstance(value, tuple) or len(value) != 2 or not all(isinstance(i, int) for i in value) or any(i < 0 for i in value):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
-
+    """returns the current square area"""
     def area(self):
         return self.__size ** 2
 
-    def my_print(self):
-        if self.__size == 0:
-            print()
-        else:
-            for _ in range(self.__position[1]):
-                print()
-            for _ in range(self.__size):
-                print(" " * self.__position[0] + "#" * self.__size)
+    """True if self is less or equal than other"""
+    def __le__(self, other):
+        return self.area() <= other.area()
 
-    def __str__(self):
-        square_str = ""
-        if self.__size == 0:
-            return square_str
-        for _ in range(self.__position[1]):
-            square_str += "\n"
-        for _ in range(self.__size):
-            square_str += " " * self.__position[0] + "#" * self.__size + "\n"
-        return square_str[:-1]
+    """True if self is less than other"""
+    def __lt__(self, other):
+        return self.area() < other.area()
 
-# Example usage:
-my_square = Square(5, (0, 0))
-print(my_square)
+    """True if self is equal than other"""
+    def __eq__(self, other):
+        return self.area() == other.area()
 
-print("--")
+    """True if self is greater or equal than other"""
+    def __ge__(self, other):
+        return self.area() >= other.area()
 
-my_square = Square(5, (4, 1))
-print(my_square)
+    """True if self is greater than other"""
+    def __gt__(self, other):
+        return self.area() > other.area()
+
+    """True if self is not equeal other"""
+    def __ne__(self, other):
+        return self.area() != other.area()
